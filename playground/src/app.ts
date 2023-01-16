@@ -91,3 +91,11 @@ user1 = {
 }
 
 user1.greet('hi there i am ')
+
+var emp:(number|string) = 123;
+
+let sum = (x: number, y:number) => x + y;
+
+const zortt = 'hello' as string;
+
+

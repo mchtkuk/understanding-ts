@@ -56,3 +56,6 @@ user1 = {
     }
 };
 user1.greet('hi there i am ');
+var emp = 123;
+let sum = (x, y) => x + y;
+const zortt = 'hello';
