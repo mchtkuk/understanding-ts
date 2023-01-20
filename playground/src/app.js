@@ -1,61 +1,77 @@
 "use strict";
-// function add(n1: number, n2: number) {
-//     return n1 + n2;
-// }
-// console.log(add(2,10))
-let userName = "rozr";
-console.log(userName);
-function zort(param1) {
-}
-// const addd = (a: number, b: number = 1) => a+b;
-// console.log(addd(5))
-// const object: string[] = ['sports', 'cooking'];
-// const activeObject = ['hiking', ...object];
-// activeObject.push(...object)
-// console.log(object)
-const person = {
-    name: 'max',
-    age: 30
+const e1 = {
+    name: 'Max',
+    privileges: ['create-server'],
+    startDate: new Date()
 };
-const copiedPerson = Object.assign({}, person);
-const add = (...numbers) => {
-    return numbers.reduce((curResult, curValue) => {
-        return curResult + curValue;
-    }, 0);
-    ;
-};
-const addedNumber = add(5, 10, 2, 3.7);
-console.log(addedNumber);
-function str(s) {
-    return s.split("").reverse().join("");
+function add(a, b) {
+    if (typeof a === 'string' || typeof b === 'string') {
+        return a.toString() + b.toString();
+    }
+    return a + b;
 }
-const reverseStr = str("cool");
-console.log(reverseStr);
-class Department {
-    constructor(name, admins) {
-        this.name = name;
-        this.name = name;
+function printEmployeeInformation(emp) {
+    console.log('Name: ' + emp.name);
+    if ('privileges' in emp) {
+        console.log('Privileges: ' + emp.privileges);
+    }
+    if ('startDate' in emp) {
+        console.log('Start Date: ' + emp.startDate);
     }
 }
-class ITDepartment extends Department {
-    constructor(name, admins) {
-        super(name, admins);
-        this.name = name;
-        this.admins = admins;
-        this.admins = admins;
+printEmployeeInformation({ name: 'Manu', startDate: new Date() });
+class Car {
+    drive() {
+        console.log('Driving...');
     }
 }
-const accounting = new ITDepartment('d1', ['MAX']);
-console.log(accounting);
-let user1;
-user1 = {
-    name: 'zort',
-    age: 12,
-    greet(phrase) {
-        console.log(phrase + '' + this.name);
+class Truck {
+    drive() {
+        console.log('Driving a truck...');
     }
+    loadCargo(amount) {
+        console.log('Loading cargo ...' + amount);
+    }
+}
+const v1 = new Car();
+const v2 = new Truck();
+function useVehicle(vehicle) {
+    vehicle.drive();
+    if (vehicle instanceof Truck) {
+        vehicle.loadCargo(1000);
+    }
+}
+useVehicle(v1);
+useVehicle(v2);
+function moveAnimal(animal) {
+    let speed;
+    switch (animal.type) {
+        case 'bird':
+            speed = animal.flyingSpeed;
+            break;
+        case 'horse':
+            speed = animal.runningSpeed;
+    }
+    console.log('Moving at speed: ' + speed);
+}
+moveAnimal({ type: 'bird', flyingSpeed: 10 });
+// const userInputElement = <HTMLInputElement>document.getElementById('user-input')!;
+const userInputElement = document.getElementById("userinput");
+userInputElement.value = "hi there!";
+const beesandlamers = {
+    bees: ["zort", "kert", "fert"],
+    lamers: ["pert", "fort", "arorta"]
 };
-user1.greet('hi there i am ');
-var emp = 123;
-let sum = (x, y) => x + y;
-const zortt = 'hello';
+const mapBeesandLamers = beesandlamers.bees;
+console.log(mapBeesandLamers);
+const sweetArray = [1, 2, 3, 4, 5];
+sweetArray.push("zort");
+console.log(sweetArray);
+const errorbag = {
+    email: 'not a valid email!',
+    username: 'must start with capital letter'
+};
+function cubesofN(n) {
+    return Math.pow(n, 3);
+}
+console.log(cubesofN(4));

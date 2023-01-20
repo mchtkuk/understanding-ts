@@ -1,101 +1,143 @@
-// function add(n1: number, n2: number) {
-//     return n1 + n2;
-// }
-
-
-// console.log(add(2,10))
-
-let userName: string =  "rozr"
-
-console.log(userName)
-
-
-
-
-function zort(param1?: string) {
-    
-}
-
-// const addd = (a: number, b: number = 1) => a+b;
-
-
-// console.log(addd(5))
-
-// const object: string[] = ['sports', 'cooking'];
-
-// const activeObject = ['hiking', ...object];
-
-// activeObject.push(...object)
-
-// console.log(object)
-
-const person = {
-    name: 'max',
-    age: 30
+type Admin = {
+  name: string;
+  privileges: string[];
 };
 
-const copiedPerson = { ...person };
-
-const add = (...numbers: number[]) => {
-   return numbers.reduce((curResult, curValue) => {
-        return curResult + curValue
-    }, 0);
-    ;
+type Employee = {
+  name: string;
+  startDate: Date;
 };
 
-const addedNumber = add(5,10,2, 3.7);
-console.log(addedNumber);
+// interface ElevatedEmployee extends Employee, Admin {}
 
-function str(s: string){
-    return s.split("").reverse().join("");
+type ElevatedEmployee = Admin & Employee;
+
+const e1: ElevatedEmployee = {
+  name: 'Max',
+  privileges: ['create-server'],
+  startDate: new Date()
+};
+
+type Combinable = string | number;
+type Numeric = number | boolean;
+
+type Universal = Combinable & Numeric;
+
+function add(a: Combinable, b: Combinable) {
+  if (typeof a === 'string' || typeof b === 'string') {
+    return a.toString() + b.toString();
+  }
+  return a + b;
 }
 
-const reverseStr = str("cool");
+type UnknownEmployee = Employee | Admin;
 
-console.log(reverseStr)
-
-class Department {
-
-    constructor(public name: string, admins: string[]) {
-        this.name = name;
-    }
+function printEmployeeInformation(emp: UnknownEmployee) {
+  console.log('Name: ' + emp.name);
+  if ('privileges' in emp) {
+    console.log('Privileges: ' + emp.privileges);
+  }
+  if ('startDate' in emp) {
+    console.log('Start Date: ' + emp.startDate);
+  }
 }
 
-class ITDepartment extends Department {
-    constructor(public name: string, public admins: string[]) {
-        super(name, admins);
-        this.admins = admins
-    }
+printEmployeeInformation({ name: 'Manu', startDate: new Date() });
+
+class Car {
+  drive() {
+    console.log('Driving...');
+  }
 }
 
-const accounting = new ITDepartment('d1', ['MAX']);
+class Truck {
+  drive() {
+    console.log('Driving a truck...');
+  }
 
-console.log(accounting)
-
-
-interface Person {
-    name: string;
-    age: number;
-
-    greet(phrase: string): void;
+  loadCargo(amount: number) {
+    console.log('Loading cargo ...' + amount);
+  }
 }
 
-let user1: Person;
+type Vehicle = Car | Truck;
 
-user1 = {
-    name: 'zort',
-    age: 12,
-    greet(phrase: string) {
-     console.log(phrase + '' + this.name)
-    }
+const v1 = new Car();
+const v2 = new Truck();
+
+function useVehicle(vehicle: Vehicle) {
+  vehicle.drive();
+  if (vehicle instanceof Truck) {
+    vehicle.loadCargo(1000);
+  }
 }
 
-user1.greet('hi there i am ')
+useVehicle(v1);
+useVehicle(v2);
 
-var emp:(number|string) = 123;
+interface Bird {
+  type: 'bird';
+  flyingSpeed: number;
+}
 
-let sum = (x: number, y:number) => x + y;
+interface Horse {
+  type: 'horse';
+  runningSpeed: number;
+}
 
-const zortt = 'hello' as string;
+type Animal = Bird | Horse;
+
+function moveAnimal(animal: Animal) {
+  let speed;
+  switch (animal.type) {
+    case 'bird':
+      speed = animal.flyingSpeed;
+      break;
+    case 'horse':
+      speed = animal.runningSpeed;
+  }
+  console.log('Moving at speed: ' + speed);
+}
+
+moveAnimal({type: 'bird', flyingSpeed: 10});
+
+// const userInputElement = <HTMLInputElement>document.getElementById('user-input')!;
+const userInputElement = document.getElementById("userinput")! as HTMLInputElement;
+
+userInputElement.value = "hi there!"
+
+type mapAnimals = {
+  bees: string[];
+  lamers: string[];
+}
+
+const beesandlamers: mapAnimals = {
+  bees: ["zort", "kert", "fert"],
+  lamers: ["pert", "fort", "arorta"]
+}
+
+const mapBeesandLamers = beesandlamers.bees
+
+console.log(mapBeesandLamers);
+
+const sweetArray: any | number = [1,2,3,4,5]
+
+sweetArray.push("zort")
+
+console.log(sweetArray)
 
 
+interface ErrorHandler {
+ [prop: string]: string;
+}
+
+const errorbag: ErrorHandler = {
+  email: 'not a valid email!',
+  username: 'must start with capital letter'
+}
+
+function cubesofN(n: number) {
+  return n ** 3;
+}
+
+console.log(cubesofN(4))
