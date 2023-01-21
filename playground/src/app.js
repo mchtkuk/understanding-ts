@@ -2,7 +2,7 @@
 function InnerHtml(template, hookID) {
     return function (constructor) {
         const hookEl = document.getElementById(hookID);
-        let currentDate = new Date().toJSON().slice(11, 19);
+        let currentDate = new Date().toString().slice(15, 24);
         if (hookEl) {
             hookEl.innerHTML = template;
             hookEl.querySelector('h1').textContent = currentDate;
