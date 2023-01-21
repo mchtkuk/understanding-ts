@@ -74,7 +74,7 @@ function moveAnimal(animal) {
 moveAnimal({ type: 'bird', flyingSpeed: 10 });
 // const userInputElement = <HTMLInputElement>document.getElementById('user-input')!;
 const userInputElement = document.getElementById("userinput");
-userInputElement.value = "hi there!";
+userInputElement.value = "Hi there!";
 const beesandlamers = {
     bees: ["zort", "kert", "fert"],
     lamers: ["pert", "fort", "arorta"]

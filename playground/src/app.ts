@@ -127,7 +127,7 @@ moveAnimal({type: 'bird', flyingSpeed: 10});
 // const userInputElement = <HTMLInputElement>document.getElementById('user-input')!;
 const userInputElement = document.getElementById("userinput")! as HTMLInputElement;
 
-userInputElement.value = "hi there!"
+userInputElement.value = "Hi there!"
 
 type mapAnimals = {
   bees: string[];
