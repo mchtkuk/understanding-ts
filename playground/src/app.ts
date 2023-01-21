@@ -1,3 +1,26 @@
+
+function InnerHtml(template: string, hookID: string) {
+  return function(constructor: any) {
+    const hookEl = document.getElementById(hookID);
+    let currentDate = new Date().toJSON().slice(11,19);
+    if(hookEl) {
+      hookEl.innerHTML = template;
+      hookEl.querySelector('h1')!.textContent = "time = " + currentDate
+    }
+  }
+}
+
+
+setInterval(InnerHtml('<h1></h1>', 'zort'), 1000)
+
+class istsme {
+  name = 'Max';
+
+  constructor() {
+    console.log('creating a new person object...');
+  }
+}
+
 type Admin = {
   name: string;
   privileges: string[];
@@ -141,3 +164,21 @@ function cubesofN(n: number) {
 }
 
 console.log(cubesofN(4))
+
+const names: Array<string> = ["max"]
+names[0].split('')
+
+
+interface Lenghty {
+  length: number;
+}
+
+function printAndCount<T extends Lenghty>(element: T): [T, string] {
+  let descriptionText = "Got no value";
+  if(element.length === 1) {
+    descriptionText = "Got 1 element";
+  } else if (element.length > 1) {
+    descriptionText = 'Got' + element.length + 'elements'
+  }
+  return [element, descriptionText];
+}
