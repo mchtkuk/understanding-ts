@@ -5,7 +5,7 @@ function InnerHtml(template: string, hookID: string) {
     let currentDate = new Date().toJSON().slice(11,19);
     if(hookEl) {
       hookEl.innerHTML = template;
-      hookEl.querySelector('h1')!.textContent = "time = " + currentDate
+      hookEl.querySelector('h1')!.textContent = currentDate as any;
     }
   }
 }
