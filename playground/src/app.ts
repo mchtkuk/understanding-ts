@@ -2,7 +2,7 @@
 function InnerHtml(template: string, hookID: string) {
   return function(constructor: any) {
     const hookEl = document.getElementById(hookID);
-    let currentDate = new Date().toString().slice(15,24)
+    let currentDate = new Date().toString().slice(16,25)
     if(hookEl) {
       hookEl.innerHTML = template;
       hookEl.querySelector('h1')!.textContent = currentDate as any;
@@ -127,7 +127,7 @@ moveAnimal({type: 'bird', flyingSpeed: 10});
 // const userInputElement = <HTMLInputElement>document.getElementById('user-input')!;
 const userInputElement = document.getElementById("userinput")! as HTMLInputElement;
 
-userInputElement.value = "Hi there!"
+userInputElement.value = "Typescript!"
 
 type mapAnimals = {
   bees: string[];

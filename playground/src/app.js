@@ -2,7 +2,7 @@
 function InnerHtml(template, hookID) {
     return function (constructor) {
         const hookEl = document.getElementById(hookID);
-        let currentDate = new Date().toString().slice(15, 24);
+        let currentDate = new Date().toString().slice(16, 25);
         if (hookEl) {
             hookEl.innerHTML = template;
             hookEl.querySelector('h1').textContent = currentDate;
@@ -74,7 +74,7 @@ function moveAnimal(animal) {
 moveAnimal({ type: 'bird', flyingSpeed: 10 });
 // const userInputElement = <HTMLInputElement>document.getElementById('user-input')!;
 const userInputElement = document.getElementById("userinput");
-userInputElement.value = "Hi there!";
+userInputElement.value = "Typescript!";
 const beesandlamers = {
     bees: ["zort", "kert", "fert"],
     lamers: ["pert", "fort", "arorta"]
