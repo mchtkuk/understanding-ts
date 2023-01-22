@@ -91,7 +91,8 @@ const errorbag = {
 function cubesofN(n) {
     return Math.pow(n, 3);
 }
-console.log(cubesofN(4));
+let cubesOf = cubesofN(4);
+const n3Id = document.getElementById('n3').textContent = 'Cubes of n3(4) function = ' + cubesOf;
 const names = ["max"];
 names[0].split('');
 function printAndCount(element) {

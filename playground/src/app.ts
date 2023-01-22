@@ -163,7 +163,9 @@ function cubesofN(n: number) {
   return n ** 3;
 }
 
-console.log(cubesofN(4))
+let cubesOf: number = cubesofN(4)
+
+const n3Id = document.getElementById('n3')!.textContent = 'Cubes of n3(4) function = ' + cubesOf;
 
 const names: Array<string> = ["max"]
 names[0].split('')
