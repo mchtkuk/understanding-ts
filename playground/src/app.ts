@@ -209,3 +209,7 @@ class Printer {
 const p = new Printer()
 const button = document.querySelector('button')!;
 button?.addEventListener('click', p.showMessage);
+
+const newName: string = "keriz"
+
+console.log(newName)
